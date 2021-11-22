@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Test : MonoBehaviour
+public class GCCtrl : MonoBehaviour
 {
     public Button btn1;
     public Button btn2;
