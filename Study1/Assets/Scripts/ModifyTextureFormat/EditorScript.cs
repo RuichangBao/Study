@@ -25,7 +25,7 @@ public class EditorScript
 		{
 			TextureImporter textureImporter = AssetImporter.GetAtPath(listFilePath[i]) as TextureImporter;
 			TextureImporterPlatformSettings textureImporterPlatformSettings = textureImporter.GetDefaultPlatformTextureSettings();
-			textureImporterPlatformSettings.format = TextureImporterFormat.Alpha8;
+			textureImporterPlatformSettings.format = TextureImporterFormat.ARGB32;
 			textureImporter.SetPlatformTextureSettings(textureImporterPlatformSettings);
 			textureImporter.SaveAndReimport();   // 应用并重新导入
 			AssetDatabase.ImportAsset(listFilePath[i]);
