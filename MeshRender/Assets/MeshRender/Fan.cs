@@ -5,13 +5,12 @@ using UnityEngine;
 public class Fan : MonoBehaviour
 {
     public Mesh mesh;
-    public int num;
-    public float angle;
-    public float length;
+    public int num = 8;
+    public float angle = 90;
+    public float length = 1;
     void Start()
     {
         mesh = this.gameObject.AddComponent<MeshFilter>().mesh;
-        
     }
     private void Update()
     {
