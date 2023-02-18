@@ -108,7 +108,7 @@ public class DynamicAtlas : MonoBehaviour
     {
         for (int i = 0; i < _spriteCacheList.Count; ++i)
         {
-            var sp = _spriteCacheList[i];
+            NxSpriteInfo sp = _spriteCacheList[i];
             if (sp.IsEmpty())
                 return sp;
         }
