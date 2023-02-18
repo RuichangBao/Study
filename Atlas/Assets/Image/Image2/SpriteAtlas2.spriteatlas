@@ -31,7 +31,9 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 102900000, guid: e982311158130a446bd6a313573dd395, type: 3}
+    - {fileID: 21300000, guid: 58059e92d21c58a4d9fc51c10ddb353d, type: 3}
+    - {fileID: 2800000, guid: 48a249a1349e684498918354fd357655, type: 3}
+    - {fileID: 21300000, guid: d7255c4d8e9cf1c41bc3051cccab725a, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
