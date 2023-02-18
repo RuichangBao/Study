@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class DynamicAtlas : MonoBehaviour
 {
-    private const int MAX_DYNAMIC_ATLAS_SIZE = 1024;
+    private const int atlasSize = 1024;
     private const int DYNAMIC_ATLAS_CELL_SIZEX = 275;
     private const int DYNAMIC_ATLAS_CELL_SIZEY = 607;
     //列数
-    private const int numsX = MAX_DYNAMIC_ATLAS_SIZE / DYNAMIC_ATLAS_CELL_SIZEX;
+    private const int numsX = atlasSize / DYNAMIC_ATLAS_CELL_SIZEX;
     //行数
-    private const int numsY = MAX_DYNAMIC_ATLAS_SIZE / DYNAMIC_ATLAS_CELL_SIZEY;
+    private const int numsY = atlasSize / DYNAMIC_ATLAS_CELL_SIZEY;
 
 
     [SerializeField]
@@ -21,7 +21,7 @@ public class DynamicAtlas : MonoBehaviour
 
     private void Awake()
     {
-        _dynamicAtlasTex = new Texture2D(MAX_DYNAMIC_ATLAS_SIZE, MAX_DYNAMIC_ATLAS_SIZE, TextureFormat.RGBA32, false);
+        _dynamicAtlasTex = new Texture2D(atlasSize, atlasSize, TextureFormat.RGBA32, false);
         _initCacheSprite();
     }
 
@@ -48,7 +48,7 @@ public class DynamicAtlas : MonoBehaviour
         int index = -1;
         if (_spriteRedirectMap.TryGetValue(spriteInstanceID, out index))
         {
-            var newSprite = _spriteCacheList[index];
+            NxSpriteInfo newSprite = _spriteCacheList[index];
             newSprite.AddReference();
             return newSprite.sprite;
         }
@@ -56,7 +56,7 @@ public class DynamicAtlas : MonoBehaviour
         // 检查是不是本身就是动态生成的 如果是的话 什么都不用做
         for (int i = 0; i < _spriteCacheList.Count; ++i)
         {
-            var sp = _spriteCacheList[i];
+            NxSpriteInfo sp = _spriteCacheList[i];
             if (sp.sprite == sprite)
             {
                 return sprite;
@@ -64,7 +64,7 @@ public class DynamicAtlas : MonoBehaviour
         }
 
         // 拿不到缓存就找个空格子新增
-        var emptySprite = GetEmptySprite();
+        NxSpriteInfo emptySprite = GetEmptySprite();
         if (emptySprite != null)
         {
             // GPU上直接操作 速度快 兼容性差
@@ -95,7 +95,7 @@ public class DynamicAtlas : MonoBehaviour
     {
         for (int i = 0; i < _spriteCacheList.Count; ++i)
         {
-            var sp = _spriteCacheList[i];
+            NxSpriteInfo sp = _spriteCacheList[i];
             if (sp.sprite == sprite)
             {
                 sp.RemoveReference();
