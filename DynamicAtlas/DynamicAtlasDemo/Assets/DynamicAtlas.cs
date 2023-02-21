@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-
+[SerializeField]
 public class DynamicAtlas : MonoBehaviour
 {
-    private const int atlasSize = 1024;
-    private const int DYNAMIC_ATLAS_CELL_SIZEX = 275;
-    private const int DYNAMIC_ATLAS_CELL_SIZEY = 607;
+    private const int atlasSize = 2048;
+    private const int imgWidth = 275;
+    private const int imgHeight = 607;
     //列数
-    private const int numsX = atlasSize / DYNAMIC_ATLAS_CELL_SIZEX;
+    private const int numsX = atlasSize / imgWidth;
     //行数
-    private const int numsY = atlasSize / DYNAMIC_ATLAS_CELL_SIZEY;
+    private const int numsY = atlasSize / imgHeight;
 
 
     [SerializeField]
     private Texture2D _dynamicAtlasTex;
-
     // 策略 分成格子
     private List<NxSpriteInfo> _spriteCacheList;
     private Dictionary<int, int> _spriteRedirectMap = new Dictionary<int, int>();
@@ -27,24 +26,22 @@ public class DynamicAtlas : MonoBehaviour
 
     private void _initCacheSprite()
     {
-
         _spriteCacheList = new List<NxSpriteInfo>();
         for (int i = 0; i < numsX; ++i)
         {
             for (int j = 0; j < numsY; ++j)
             {
-                _spriteCacheList.Add(new NxSpriteInfo(i, j, _dynamicAtlasTex,
-                    i * DYNAMIC_ATLAS_CELL_SIZEX, j * DYNAMIC_ATLAS_CELL_SIZEY,
-                    DYNAMIC_ATLAS_CELL_SIZEX, DYNAMIC_ATLAS_CELL_SIZEY));
+                _spriteCacheList.Add(new NxSpriteInfo(i, j, _dynamicAtlasTex, i * imgWidth, j * imgHeight, imgWidth, imgHeight));
             }
         }
     }
 
+
     public Sprite GetOrLoadSprite(Sprite sprite)
     {
         // 拿缓存
-        var spriteInstanceID = sprite.GetInstanceID();
-        //Debug.Log(string.Format(" name: {0} instanceid: {1}", sprite.name, spriteInstanceID));
+        int spriteInstanceID = sprite.GetInstanceID();
+        Debug.LogError(string.Format(" name: {0} instanceid: {1}", sprite.name, spriteInstanceID));
         int index = -1;
         if (_spriteRedirectMap.TryGetValue(spriteInstanceID, out index))
         {
@@ -117,6 +114,6 @@ public class DynamicAtlas : MonoBehaviour
 
     private int GetIndex(NxSpriteInfo sprite)
     {
-        return sprite.x * DYNAMIC_ATLAS_CELL_SIZEX + sprite.y;
+        return sprite.x * imgWidth + sprite.y;
     }
 }
