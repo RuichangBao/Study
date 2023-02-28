@@ -1,2 +1,9 @@
 *.vsconfig
 *.sln
+*.vs
+UnityPackageManager
+Temp
+bin
+obj
+Library
+Logs
