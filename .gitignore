@@ -1,7 +1,7 @@
 *.csproj
-*.vs
 UnityPackageManager
 Temp
+bin
 obj
 Library
 Logs
