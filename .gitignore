@@ -1,3 +1,4 @@
+*.vs
 UnityPackageManager
 Temp
 bin
