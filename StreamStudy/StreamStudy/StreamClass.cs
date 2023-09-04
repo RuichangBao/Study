@@ -8,18 +8,19 @@ namespace StreamStudy
 {
     internal class StreamClass
     {
-        private string basePath = AppDomain.CurrentDomain.BaseDirectory;
+        private DirectoryInfo basePath ;
         private AsyncCallback asyncReadCallback = new AsyncCallback(ReadCallback);
         private AsyncCallback asyncWriteCallback = new AsyncCallback(WriteCallback);
         private object asyncReadCallbackObj = new object();
         private object asyncWriteCallbackObj = new object();
         public void Main()
         {
-            string startDirectory = basePath + @"\aaa";
-            string endDirectory = basePath + @"\bbb";
+            basePath = new DirectoryInfo(Directory.GetCurrentDirectory());
+            string startDirectory = basePath.Parent.Parent.FullName + @"\aaa";
+            string endDirectory = basePath.Parent.Parent.FullName + @"\bbb";
             if (!Directory.Exists(startDirectory))
             {
-                Console.WriteLine("输入文件夹不存在");
+                Console.WriteLine("输入文件夹不存在"+ startDirectory);
                 return;
             }
             Directory.CreateDirectory(endDirectory);
@@ -62,22 +63,20 @@ namespace StreamStudy
                 //}
                 #endregion
                 #region 异步写入
-                using (FileStream sourctFileStream = File.Open(filename, FileMode.Open))
-                {
-                    using (FileStream destinationStream = File.Create(endDirectory + filename.Substring(filename.LastIndexOf('\\'))))
-                    {
-                        //一个中文三个字符所以数组大小必须是3的倍数才不会乱码
-                        byte[] buffer = new byte[108]; // 读取数据写入到目标文件流
-                        int bytesRead;
-                        while ((bytesRead = sourctFileStream.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            Console.WriteLine(sourctFileStream.Position);
-                            destinationStream.BeginWrite(buffer, 0, bytesRead, asyncWriteCallback, asyncWriteCallbackObj);
-                        }
-                    }
-                }
-
-
+                //using (FileStream sourctFileStream = File.Open(filename, FileMode.Open))
+                //{
+                //    using (FileStream destinationStream = File.Create(endDirectory + filename.Substring(filename.LastIndexOf('\\'))))
+                //    {
+                //        //一个中文三个字符所以数组大小必须是3的倍数才不会乱码
+                //        byte[] buffer = new byte[108]; // 读取数据写入到目标文件流
+                //        int bytesRead;
+                //        while ((bytesRead = sourctFileStream.Read(buffer, 0, buffer.Length)) > 0)
+                //        {
+                //            Console.WriteLine(sourctFileStream.Position);
+                //            destinationStream.BeginWrite(buffer, 0, bytesRead, asyncWriteCallback, asyncWriteCallbackObj);
+                //        }
+                //    }
+                //}
                 #endregion
             }
         }
