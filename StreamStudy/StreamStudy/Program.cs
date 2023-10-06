@@ -1,4 +1,6 @@
-﻿namespace StreamStudy
+﻿using System.Text;
+
+namespace StreamStudy
 {
     internal class Program
     {
@@ -6,8 +8,6 @@
         {
             StreamClass streamClass = new StreamClass();
             streamClass.Main();
-
-            Console.WriteLine("Hello, World!");
         }
     }
-}
+} 

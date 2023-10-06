@@ -32,7 +32,7 @@ namespace StreamStudy
                 //    Console.WriteLine(sourctFileStream.Length);
                 //    using (FileStream destinationStream = File.Create(endDirectory + filename.Substring(filename.LastIndexOf('\\'))))
                 //    {
-                //        byte[] buffer = new byte[512]; // 读取数据写入到目标文件流
+                //        byte[] buffer = new byte[108]; // 读取数据写入到目标文件流
                 //        int bytesRead;
                 //        int i = 0;
                 //        while ((bytesRead = sourctFileStream.Read(buffer, 0, buffer.Length)) > 0 && i < 10)
@@ -47,11 +47,25 @@ namespace StreamStudy
                 //}
                 //#endregion
                 #region 异步读取
+                using (FileStream sourctFileStream = File.Open(filename, FileMode.Open))
+                {
+                    using (FileStream destinationStream = File.Create(endDirectory + filename.Substring(filename.LastIndexOf('\\'))))
+                    {
+                        byte[] buffer = new byte[108000]; // 读取数据写入到目标文件流
+                        Console.WriteLine("异步读取开始");
+                        IAsyncResult asyncResult = sourctFileStream.BeginRead(buffer, 0, buffer.Length, ReadCallback, asyncReadCallbackObj);
+                        destinationStream.Write(buffer, 0, buffer.Length);
+                        Console.WriteLine("异步读取结束");
+                    }
+                }
+                #endregion
+                #region 异步写入
                 //using (FileStream sourctFileStream = File.Open(filename, FileMode.Open))
                 //{
                 //    using (FileStream destinationStream = File.Create(endDirectory + filename.Substring(filename.LastIndexOf('\\'))))
                 //    {
-                //        byte[] buffer = new byte[512]; // 读取数据写入到目标文件流
+                //        //一个中文三个字符所以数组大小必须是3的倍数才不会乱码
+                //        byte[] buffer = new byte[108]; // 读取数据写入到目标文件流
                 //        int bytesRead;
                 //        while ((bytesRead = sourctFileStream.Read(buffer, 0, buffer.Length)) > 0)
                 //        {
@@ -60,22 +74,6 @@ namespace StreamStudy
                 //        }
                 //    }
                 //}
-                #endregion
-                #region 异步写入
-                using (FileStream sourctFileStream = File.Open(filename, FileMode.Open))
-                {
-                    using (FileStream destinationStream = File.Create(endDirectory + filename.Substring(filename.LastIndexOf('\\'))))
-                    {
-                        //一个中文三个字符所以数组大小必须是3的倍数才不会乱码
-                        byte[] buffer = new byte[108]; // 读取数据写入到目标文件流
-                        int bytesRead;
-                        while ((bytesRead = sourctFileStream.Read(buffer, 0, buffer.Length)) > 0)
-                        {
-                            Console.WriteLine(sourctFileStream.Position);
-                            destinationStream.BeginWrite(buffer, 0, bytesRead, asyncWriteCallback, asyncWriteCallbackObj);
-                        }
-                    }
-                }
                 #endregion
             }
         }
