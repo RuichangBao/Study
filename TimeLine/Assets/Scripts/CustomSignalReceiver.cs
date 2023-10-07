@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Timeline;
 /// <summary>
 /// 自定义脚本发射器和接收器必须在同一个物体上
 /// </summary>
