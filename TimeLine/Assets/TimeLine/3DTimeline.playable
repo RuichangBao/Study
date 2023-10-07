@@ -189,6 +189,40 @@ MonoBehaviour:
   m_Asset: {fileID: 11400000, guid: 05b8f5ac471bf264ea00309e8ff5b561, type: 2}
   eventName: 123
   param: 456
+--- !u!114 &-7239942669687553301
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b2b810b00659488ce48f1eada0c14, type: 3}
+  m_Name: Annotation(Clone)
+  m_EditorClassIdentifier: 
+  m_Time: 6.533333333333333
+  title: 
+  color: {r: 1, g: 1, b: 1, a: 0.5}
+  showLineOverlay: 1
+  description: 
+--- !u!114 &-7013448604397119331
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b2b810b00659488ce48f1eada0c14, type: 3}
+  m_Name: Annotation(Clone)
+  m_EditorClassIdentifier: 
+  m_Time: 6.533333333333333
+  title: 
+  color: {r: 1, g: 1, b: 1, a: 0.5}
+  showLineOverlay: 1
+  description: 
 --- !u!114 &-5399677861139775482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,6 +457,25 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects: []
+--- !u!114 &-1862931275032028549
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b2b810b00659488ce48f1eada0c14, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  m_Time: 4
+  title: Annotation
+  color: {r: 1, g: 1, b: 1, a: 0.5}
+  showLineOverlay: 1
+  description: '
+
+'
 --- !u!114 &-1005015570197871369
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,6 +595,25 @@ MonoBehaviour:
     volume: 1
     stereoPan: 0
     spatialBlend: 0
+--- !u!114 &-546063853963553702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b2b810b00659488ce48f1eada0c14, type: 3}
+  m_Name: (Clone)
+  m_EditorClassIdentifier: 
+  m_Time: 4
+  title: Annotation
+  color: {r: 1, g: 1, b: 1, a: 0.5}
+  showLineOverlay: 1
+  description: '
+
+'
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,7 +633,6 @@ MonoBehaviour:
   - {fileID: -974121682558414954}
   - {fileID: 5485101210352291580}
   - {fileID: -1954051875379867984}
-  - {fileID: 4681045503015738180}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -862,29 +933,6 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events: []
---- !u!114 &4681045503015738180
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6a96bcae164d145852d053befa9107, type: 3}
-  m_Name: Image Track
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_AnimClip: {fileID: 0}
-  m_Locked: 0
-  m_Muted: 0
-  m_CustomPlayableFullTypename: 
-  m_Curves: {fileID: 0}
-  m_Parent: {fileID: 11400000}
-  m_Children: []
-  m_Clips: []
-  m_Markers:
-    m_Objects: []
 --- !u!114 &5037067267086953070
 MonoBehaviour:
   m_ObjectHideFlags: 1
